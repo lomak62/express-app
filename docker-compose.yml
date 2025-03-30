@@ -1,6 +1,6 @@
 services:
   app:
-    image: lomak62/express-app:latest # from Docker Hub
+    image: lomak62/express-app:latest
     container_name: express-app
     ports:
       - "8080:8080"
