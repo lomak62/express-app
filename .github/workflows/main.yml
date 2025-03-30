@@ -2,9 +2,7 @@ name: Release Node.js app
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    branches: main
 
 jobs:
   build: # name of the job
