@@ -1,10 +1,20 @@
 services:
+  app:
+    image: lomak62/express-app:latest # from Docker Hub
+    container_name: express-app
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
   watchtower:
     image: containrrr/watchtower
+    container_name: watchtower
     environment:
       - WATCHTOWER_POLL_INTERVAL=60 # Poll every 60 seconds
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    container_name: watchtower
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
+    restart: unless-stopped
+    depends_on:
+      - app
